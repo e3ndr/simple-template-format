@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My cool website!</title>
+</head>
+
+<body>
+	<h1>
+	[#if someValue]
+	Hello world!
+	[/]
+		
+	[#ifnot someValue]
+	Something else!
+	[/]
+	</h1>
+
+    <ul>
+        [#each articles as article]
+        <li>
+			<h2 style="margin: 0;">
+				<a href="/[$article.slug]">
+					[$article.title] by 
+					[#each article.authors as author]
+					[$author]
+					[/]
+				</a> <br />
+			</h2>
+			[$article.summary]
+        </li>
+        [/]
+    </ul>
+	
+    Copyright &copy;[$year], Acme Inc.
+</body>
+
+</html>
