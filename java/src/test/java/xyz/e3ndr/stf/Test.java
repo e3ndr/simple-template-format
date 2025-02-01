@@ -2,6 +2,7 @@ package xyz.e3ndr.stf;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 
 import co.casterlabs.rakurai.json.element.JsonArray;
@@ -25,7 +26,7 @@ public class Test {
                 )
             );
 
-        String input = Files.readString(new File("../demo.stf").toPath());
+        String input = new String(Files.readAllBytes(new File("../demo.stf").toPath()), StandardCharsets.UTF_8);
 
         STFParser.parse(input); // Warm-up the JVM.
 
